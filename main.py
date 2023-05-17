@@ -1,7 +1,8 @@
 import discord
 import asyncio
+import os
 
-TOKEN = 'TWÓJ_TOKEN_BOTA'
+bot_token = os.getenv('BOT_TOKEN')
 
 client = discord.Client()
 
@@ -16,8 +17,8 @@ async def on_ready():
 
 
 async def send_private_messages():
-    server_id = 'ID_SERWERA'
-    player_ids = ['ID_GRACZA1', 'ID_GRACZA2', 'ID_GRACZA3']  # Lista ID graczy, do których chcesz wysłać wiadomości
+    server_id = '1020433232619110490'
+    player_ids = ['314230903872421889', '237665621448327168']  # Lista ID graczy, do których chcesz wysłać wiadomości
 
     server = client.get_guild(int(server_id))
     for player_id in player_ids:
@@ -33,4 +34,4 @@ async def send_private_messages():
             print(f'Nie można znaleźć gracza o ID: {player_id}')
 
 
-client.run(TOKEN)
+client.run(bot_token)
